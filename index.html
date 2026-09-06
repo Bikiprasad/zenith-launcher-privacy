@@ -24,6 +24,9 @@
       --btn-bg: #F4F4F5;
       --btn-border: #E4E4E7;
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      --halo-bottom: #3A1E12;
+      --halo-mid: #71717A;
+      --beacon-color: #18181B;
     }
 
     [data-theme="dark"] {
@@ -42,6 +45,9 @@
       --btn-bg: #1F2937;
       --btn-border: #27272A;
       --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --halo-bottom: #3A1E12;
+      --halo-mid: #D9E0E0;
+      --beacon-color: #FFFFFF;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -61,6 +67,9 @@
         --btn-bg: #1F2937;
         --btn-border: #27272A;
         --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        --halo-bottom: #3A1E12;
+        --halo-mid: #D9E0E0;
+        --beacon-color: #FFFFFF;
       }
     }
 
@@ -96,6 +105,20 @@
 
     .header-content {
       flex: 1;
+    }
+
+    .brand-logo-wrapper {
+      margin-bottom: 22px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .zenith-full-logo {
+      width: 175px;
+      height: auto;
+      max-height: 130px;
+      display: block;
+      filter: drop-shadow(0 4px 14px rgba(255, 120, 54, 0.22));
     }
 
     .theme-toggle-btn {
@@ -281,6 +304,32 @@
   <div class="container">
     <header>
       <div class="header-content">
+        <div class="brand-logo-wrapper">
+          <svg class="zenith-full-logo" viewBox="0 0 320 240" width="175" height="131" aria-label="Zenith Launcher Logo">
+            <defs>
+              <radialGradient id="solarHalo" cx="250" cy="165" r="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FF7F36" stop-opacity="1" />
+                <stop offset="40%" stop-color="#FF5414" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#FF5414" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="haloRing" x1="250" y1="335" x2="250" y2="165" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="var(--halo-bottom, #3A1E12)" stop-opacity="0.3" />
+                <stop offset="65%" stop-color="var(--halo-mid, #D9E0E0)" stop-opacity="0.85" />
+                <stop offset="100%" stop-color="#FF7836" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+            <g transform="translate(-91, -112)">
+              <!-- 1. Solar Halo Bloom at Apex Beacon -->
+              <circle cx="250" cy="165" r="36" fill="url(#solarHalo)" />
+              <!-- 2. Celestial Gradient Halo Ring -->
+              <circle cx="250" cy="250" r="85" fill="none" stroke="url(#haloRing)" stroke-width="4.5" stroke-linecap="round" />
+              <!-- 3. Crown Apex Beacon Star -->
+              <circle cx="250" cy="165" r="6.5" fill="var(--beacon-color, #FFFFFF)" />
+              <!-- 4. Modern Extended Geometric ZENITH Typography -->
+              <path fill="currentColor" d="M121.6,232.5 L149.8,232.5 L149.8,237.7 L131.8,259.5 L150.3,259.5 L150.3,266.0 L121.1,266.0 L121.1,260.8 L139.1,239.0 L121.6,239.0 L121.6,232.5 Z M172.6,232.5 L195.9,232.5 L195.9,239.0 L181.2,239.0 L181.2,245.2 L195.0,245.2 L195.0,251.8 L181.2,251.8 L181.2,259.5 L196.4,259.5 L196.4,266.0 L172.6,266.0 L172.6,232.5 Z M218.6,232.5 L228.3,232.5 L240.5,255.5 L240.5,232.5 L248.7,232.5 L248.7,266.0 L239.0,266.0 L226.8,243.0 L226.8,266.0 L218.6,266.0 L218.6,232.5 Z M270.9,232.5 L279.5,232.5 L279.5,266.0 L270.9,266.0 L270.9,232.5 Z M297.8,232.5 L328.7,232.5 L328.7,239.0 L317.6,239.0 L317.6,266.0 L308.9,266.0 L308.9,239.0 L297.8,239.0 L297.8,232.5 Z M350.9,232.5 L359.5,232.5 L359.5,245.2 L372.3,245.2 L372.3,232.5 L380.9,232.5 L380.9,266.0 L372.3,266.0 L372.3,251.8 L359.5,251.8 L359.5,266.0 L350.9,266.0 L350.9,232.5 Z" />
+            </g>
+          </svg>
+        </div>
         <div class="badge">Privacy First &bull; Strictly On-Device</div>
         <h1>Privacy Policy</h1>
         <div class="meta">
